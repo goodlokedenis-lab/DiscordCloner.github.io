@@ -2,83 +2,453 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Server Cloner Pro</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>KastWorld — Правила проекта</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            font-family: 'Inter', sans-serif;
+            color: #eef2ff;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            margin-bottom: 1.2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF 0%, #a5b4fc 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            max-width: 650px;
+            margin: 0 auto;
+            border-bottom: 1px solid #1f2937;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .ip-bar {
+            background: #11161f;
+            border-radius: 60px;
+            padding: 0.5rem 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border: 1px solid #2d3748;
+            backdrop-filter: blur(4px);
+        }
+
+        .ip-bar i {
+            color: #60a5fa;
+        }
+
+        /* layout grid */
+        .rules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* card style */
+        .rule-section {
+            background: rgba(18, 24, 36, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+
+        .rule-section:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.4) 100%);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid #1f2a3e;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+            color: #818cf8;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .section-desc {
+            margin-left: auto;
+            font-size: 0.75rem;
+            background: #00000030;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            color: #9ca3af;
+        }
+
+        .rule-content {
+            padding: 1.8rem 2rem;
+        }
+
+        .rule-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .rule-item {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            border-left: 3px solid #3b4252;
+            transition: border-color 0.2s;
+            position: relative;
+        }
+
+        .rule-item:hover {
+            border-left-color: #818cf8;
+        }
+
+        .rule-text {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        .rule-text strong {
+            color: #facc15;
+            font-weight: 600;
+        }
+
+        .punishment {
+            display: inline-block;
+            background: #1e1b2c;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #f472b6;
+            margin-left: 0.5rem;
+            font-family: monospace;
+        }
+
+        .sub-list {
+            margin-top: 0.6rem;
+            margin-left: 1.5rem;
+            list-style: circle;
+            color: #b9c3d4;
+            font-size: 0.88rem;
+        }
+
+        .sub-list li {
+            margin: 0.4rem 0;
+        }
+
+        .mod-badge {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        hr {
+            border-color: #1f2a3e;
+            margin: 1rem 0;
+        }
+
+        .warning-note {
+            background: #2c1e1a;
+            border-left: 4px solid #f97316;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6b7280;
+            border-top: 1px solid #1f2937;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .section-desc {
+                margin-left: 0;
+            }
+            .rule-content {
+                padding: 1.2rem;
+            }
+        }
+
+        .inline-code {
+            background: #0f0f1c;
+            padding: 0.2rem 0.4rem;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e6;
+        }
+
+        .badge-admin {
+            background: #7c3aed20;
+            border: 1px solid #7c3aed60;
+            border-radius: 20px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.7rem;
+        }
+        
+        .project-name {
+            color: #a78bfa;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>DISCORD CLONER PRO</h1>
-            <p class="author">by [ваше_имя] • 2026</p>
-        </header>
-
-        <div class="warning">
-            ⚠️ ТОКЕН - ЭТО ВАШ ПАРОЛЬ! НИКОМУ НЕ ПОКАЗЫВАЙТЕ ⚠️
+<div class="container">
+    <div class="hero">
+        <div class="hero-badge"><i class="fas fa-gavel"></i> Свод правил · Актуальная редакция</div>
+        <h1>KastWorld<br><span style="font-size: 1.2rem; display: block; color: #b9c7dc;">Правила проекта</span></h1>
+        <div class="ip-bar">
+            <i class="fas fa-server"></i> mc.kastworld.pw
+            <i class="fas fa-circle" style="font-size: 0.4rem; color: #22c55e;"></i>
+            <span>Все игровые режимы</span>
         </div>
-
-        <div class="token-guide">
-            <h3>КАК ПОЛУЧИТЬ ТОКЕН?</h3>
-            <ol>
-                <li>Откройте Discord в браузере</li>
-                <li>Нажмите <kbd>F12</kbd> → Network</li>
-                <li>Введите в поиске: <code>/api</code></li>
-                <li>Найдите пункт <code>science</code></li>
-                <li>Скопируйте <code>authorization</code></li>
-            </ol>
-        </div>
-
-        <div class="clone-form">
-            <input type="text" id="token" placeholder="Введите токен Discord" autocomplete="off">
-            <input type="text" id="serverId" placeholder="ID сервера для клонирования">
-            <input type="text" id="newServerName" placeholder="Название нового сервера (опционально)">
-            <button id="cloneBtn" class="clone-btn">КЛОНИРОВАНИЕ</button>
-        </div>
-
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-text" id="progressText">ПРОГРЕСС: 0%</div>
-            <div class="stage-text" id="stageText">ЭТАП: ПОДГОТОВКА</div>
-        </div>
-
-        <div class="stats">
-            <div class="stat-card">
-                <h3>РОЛИ</h3>
-                <p id="rolesCount">0/0</p>
-            </div>
-            <div class="stat-card">
-                <h3>КАНАЛЫ</h3>
-                <p id="channelsCount">0/0</p>
-            </div>
-        </div>
-
-        <div class="info-panels">
-            <div class="info-panel">
-                <h3>✅ БУДЕТ СКОПИРОВАНО</h3>
-                <ul>
-                    <li>НАЗВАНИЕ СЕРВЕРА</li>
-                    <li>ИКОНКА СЕРВЕРА</li>
-                    <li>ВСЕ РОЛИ (С ПРАВАМИ)</li>
-                    <li>КАТЕГОРИИ И КАНАЛЫ</li>
-                    <li>ПРАВА ДОСТУПА</li>
-                </ul>
-            </div>
-            <div class="info-panel">
-                <h3>❌ НЕ БУДЕТ СКОПИРОВАНО</h3>
-                <ul>
-                    <li>СООБЩЕНИЯ</li>
-                    <li>УЧАСТНИКИ</li>
-                    <li>ВЕБХУКИ</li>
-                    <li>ИНТЕГРАЦИИ</li>
-                </ul>
-            </div>
-        </div>
-
-        <footer>
-            <p>by [ваше_имя] • 2026 | <a href="#" id="supportLink">ПОДДЕРЖКА РАЗРАБОТЧИКА</a></p>
-        </footer>
+        <div class="subhead" style="margin-top: 1rem;">Регистрируясь, вы автоматически принимаете правила</div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="rules-grid">
+        <!-- 1. Общие положения -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-scroll section-icon"></i>
+                <span class="section-title">1. Общие положения</span>
+                <span class="section-desc"><i class="far fa-clock"></i> Незнание не освобождает</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text">📌 <strong>1.1</strong> Данный свод правил составлен представителем проекта KastWorld и действителен на всех игровых режимах проекта KastWorld. Незнание правил не освобождает нарушителя от ответственности, а также может усугубить наказание.</span></li>
+                    <li class="rule-item"><span class="rule-text">🌐 <strong>1.2</strong> Проект KastWorld — комплекс серверов, расположенных по адресу: <span class="inline-code">mc.kastworld.pw</span>. Все остальные домены таковыми не являются. Регистрируясь на нашем проекте, вы автоматически принимаете данные правила, а также правила других режимов.</span></li>
+                    <li class="rule-item"><span class="rule-text">⚙️ <strong>1.3</strong> Правила могут быть изменены без явного оповещения основной аудитории проекта. При значительных изменениях правил, на форуме проекта отображается объявление.</span></li>
+                    <li class="rule-item"><span class="rule-text">👑 <strong>1.4</strong> Решения и действия главной администрации (<span class="badge-admin">MrDybau , F1ner</span>) не обсуждаются и не поддаются разжалованию. Главная администрация вправе выдавать наказания вне рамок данных правил.</span></li>
+                    <li class="rule-item"><span class="rule-text">💔 <strong>1.5</strong> Администрация сервера не выдаёт игровые ресурсы/компенсации за их потерю в результате кика сервера, лагов/багов, а также действия игроков, использующие запрещённое ПО (читы).</span></li>
+                    <li class="rule-item"><span class="rule-text">🚫 <strong>1.6</strong> Продажа, взломы, попытки взломов, передачи аккаунтов, покупки аккаунтов в обход официального сайта, распространение данных игроков, вред серверу, а так же продажи/покупки чего либо за реальную валюту — строго запрещены. Наказание — <strong>отключение всех аккаунтов без возможности приобрести разбан</strong>. Соучастие, содействие, совместная игра с нарушителями так же попадают под это правило. Аккаунты с которых был нанесен серьезный вред проекту — не подлежат восстановлению, даже если аккаунт был в тот момент взломан или добровольно передан или продан. Ответственность несет владелец аккаунта, независимо от того, кто совершал действия под данным аккаунтом.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2. Регистрация -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-user-plus section-icon"></i>
+                <span class="section-title">2. Регистрация и аккаунты</span>
+                <span class="section-desc">Корректный никнейм — залог игры</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text"><strong>2.1</strong> Никнейм пользователя должен быть корректным. Некорректным можно назвать любой ник, нарушающий закрепленные правила, а также: никнейм, похожий на никнейм высшей Администрации (исключение – никнеймы ютуберов проекта); никнейм сексуального, аморального содержания; никнейм, оскорбляющий другого игрока; содержащий названия запрещенных ПО; содержащий грубые матерные слова; бессмысленный набор символов/цифр от 8 символов (исключение – аккаунты с платной услугой). <span class="punishment">блокировка / предупреждение</span></span></li>
+                    <li class="rule-item"><span class="rule-text">🧾 <strong>2.2-2.3</strong> При покупке платных дополнительных возможностей (групп), кейсов, рилликов, предоставленный системой чек необходимо сохранить. При утере/взломе аккаунта обращаться в техподдержку. Без электронного чека в восстановлении будет отказано. Ссылка на техподдержку проекта — <span class="inline-code">https://t.me/reallyworldrwinfo</span>. Безопасность аккаунта не гарантируется проектом, администрация вправе отказать в восстановлении или обнулить/заблокировать аккаунт при нанесении серьезного вреда.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3. Платные услуги -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-ruble-sign section-icon"></i>
+                <span class="section-title">3. Донат и пожертвования</span>
+                <span class="section-desc">Добровольные пожертвования</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text">💎 <strong>3.1-3.2</strong> Игра на проекте не подразумевает платы за использование ресурсов KastWorld. Игрок вправе добровольно оплатить определённую сумму проекту за внутриигровую услугу в одностороннем порядке.</span></li>
+                    <li class="rule-item"><span class="rule-text">🔁 <strong>3.3-3.4</strong> При ошибке платежа либо отсутствия услуги после оплаты обращаться в техподдержку с электронным чеком. Возврата средств за покупки нет, так как KastWorld не является коммерческой организацией, и все покупки являются добровольными пожертвованиями на развитие сервера.</span></li>
+                    <li class="rule-item"><span class="rule-text">⚠️ <strong>3.6</strong> Покупка платных групп не даёт привилегии на игнорирование/нарушение данных правил.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 4. Внутриигровое общение (самый большой раздел) -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-comments section-icon"></i>
+                <span class="section-title">4. Общение и чат</span>
+                <span class="section-desc">Уважение и порядок</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text"><strong>4.1-4.1.2</strong> Флуд: больше 2 одинаковых/похожих сообщений подряд за минуту. Запрещены сговоры с твинками для обхода, использование объявлений (/bc) для флуда. <span class="punishment">мут 4-6ч</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.2</strong> Флуд символами ("!!!!!!!!!!!!!!!!") более 10 символов, злоупотребление капсом (>50% Caps в предложении). <span class="punishment">мут 4ч</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.3-4.3.1</strong> Организация флуда опросами "отправьте + в чат" (кроме приюта/продажи/обмена). При 6+ ответивших — мут 6ч инициатору, остальным 4ч.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.4-4.4.2</strong> Неадекватное поведение, оскорбления, унижения, угрозы, злоупотребление нецензурной лексикой, аморальные темы, призывы к суициду. <span class="punishment">мут 2-12ч</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.5-4.5.1</strong> Выпрашивание снятия наказаний или ресурсов у Администрации (кроме MrDybau). <span class="punishment">мут 1-2ч</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.6-4.6.1</strong> Дезинформация игроков ("Скоро вайп"), вне-игровой обман (Alt+F4, F3+C). <span class="punishment">мут 12ч / 4д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.7-4.7.4</strong> Упоминание сторонних проектов, Discord/Telegram-контактов, реклама, вредоносные ссылки. <span class="punishment">мут 1д — бан 60д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.8-4.8.1</strong> Оскорбление родителей любого игрока или своих родителей. <span class="punishment">мут 5-15 дней</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.9</strong> Затрагивание политики, политическая агитация. <span class="punishment">бан 3-7д или мут 2д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.10-4.11.4</strong> Выдача себя за администрацию, оскорбление модерации и администрации, угрозы, неуважительное общение. <span class="punishment">бан 12ч — 20д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.12</strong> Оскорбление ютуберов проекта. <span class="punishment">бан 1-5д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.13</strong> Пропаганда нацизма, расизма, наркотиков, оружия, терроризма. <span class="punishment">бан 7д</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.14</strong> Доксинг, сватинг, распространение личных данных, угрозы. <span class="punishment">бан 30д — отключение аккаунта для сотрудников</span></span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>4.15-4.17</strong> Провокация на нарушение правил, упоминание реальной валюты, музыка/посторонние звуки в голосовом чате. <span class="punishment">бан/мут от 12ч до 2д</span></span></li>
+                </ul>
+                <div class="warning-note">
+                    <i class="fas fa-microphone-alt"></i> <strong>Важно:</strong> За злоупотребление /bc и префиксами донатеров — наказание по пункту 8.1 (бан 1-4 дня). Кастомный префикс должен соответствовать всем правилам сервера и не имитировать администрацию (Helper, Moder и т.д).
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Запрещённое ПО и читы -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-skull-crossbones section-icon"></i>
+                <span class="section-title">5. Читы, софт и нечестная игра</span>
+                <span class="section-desc">Zero tolerance</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text"><strong>5.2</strong> Использование вредоносного, читерского ПО, получение преимущества над игроками — <span class="punishment">бан 50 дней + снос основного дома + возможное отключение аккаунта</span>.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>5.2.1-5.2.3</strong> Совместная игра с читером — бан 47 дней; признание в наличии читов — бан 10д.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>5.2.4-5.2.5.1</strong> Обход блокировки аккаунта (вход с любого аккаунта после блокировки) — <span class="punishment">бан 70д</span>. Хранение читов — бан 50д.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>5.2.6-5.2.7</strong> Использование автокопателей, лесорубов — 5д; ботов, макросов, автоматизация сложных процессов — 15д.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>5.2.8-5.2.11</strong> Неадекватное поведение на проверке, виртуальные машины, манипуляции с доступом, .bat файлы на чистку — <span class="punishment">бан 50д</span>.</span></li>
+                </ul>
+                <hr>
+                <div><i class="fas fa-ban" style="color:#f87171;"></i> <strong>Запрещенные моды (примеры):</strong></div>
+                <ul class="sub-list">
+                    <li>ElytraSwap, ArmorHotSwap — <span class="punishment">5д</span></li>
+                    <li>Slippery Mod, StepUp, Inventory Totem, FreeCam, X-Ray, ChestESP, AutoAttack, Baritone, NoClipFlyMod — <strong>до 50 дней бана</strong></li>
+                    <li>InvMove, TopkaAutoBuy, CleanCut, Grass Bypass, моды на изменение хитбоксов — от 7 до 15 дней</li>
+                    <li>Любые интерпретации чит-функций, Aim Assistance, AutoLook, Zergatul.cheatutils — 50 дней бана</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. Игровой процесс и вред проекту -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-trowel section-icon"></i>
+                <span class="section-title">6. Игровой процесс, баги, ловушки</span>
+                <span class="section-desc">Честная игра</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text"><strong>6.1-6.1.4</strong> Запрещены: заливы, лаг-машины, багоюз, дюпы. Создание лаг-машин — <span class="punishment">отключение аккаунта</span>. Использование и распространение дюпов — отключение аккаунта. Багоюз — бан 25д.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>6.1.3</strong> Строительство ловушек без возможности выхода (стойки, рамки, снег, песок душ) — <span class="punishment">бан 25д + снос ловушки</span>.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>6.1.5-6.2</strong> Помеха работе персонала, флуд командами (/pay более 12 раз) — кик/бан 12ч.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>6.3-6.4</strong> Некорректный текст на табличках, регионах, книгах — бан 5-30д. Жалоба на высшую администрацию с оскорблениями — бан 3-5д.</span></li>
+                    <li class="rule-item"><span class="rule-text"><strong>6.5-6.6</strong> Реклама, продажа, распространение читов, магазинов, обмен ресурсов — <span class="punishment">перманентная блокировка аккаунта</span>. Создание кланов с нарушением правил чата — удаление клана, блокировка основателя на 5-30д.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 7. Права модерации на проверке -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-shield-alt section-icon"></i>
+                <span class="section-title">7. Проверка на читы (AnyDesk)</span>
+                <span class="section-desc">Прозрачность и безопасность</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text">🖥️ <strong>7.1-7.2</strong> Модерация имеет право вызвать на проверку через TG/Discord/AnyDesk. Только доступ к мышке и клавиатуре. Проверка исключительно через компьютер. Обязательные программы: SystemInformer, Everything, RecentFilesView, ShellbagAnalyzer, RegScanner, JournalTrace. Скачивать только с официальных сайтов.</span></li>
+                    <li class="rule-item"><span class="rule-text">📁 <strong>7.3</strong> Модераторы с повышенным доверием (moder+) имеют право проверить FunPay и другие сайты для размещения ресурсов за реальную валюту.</span></li>
+                    <li class="rule-item"><span class="rule-text">🔒 <strong>7.4</strong> Проверка производится только через AnyDesk с официального сайта. Модерация не скидывает файлы для скачивания.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 8. Донатеры и привилегии -->
+        <div class="rule-section">
+            <div class="section-header">
+                <i class="fas fa-crown section-icon"></i>
+                <span class="section-title">8. Правила для донатеров</span>
+                <span class="section-desc">Привилегии не дают иммунитета</span>
+            </div>
+            <div class="rule-content">
+                <ul class="rule-list">
+                    <li class="rule-item"><span class="rule-text">📢 <strong>8.1</strong> Использование /bc не по назначению, нарушение правил раздела 4 — <span class="punishment">бан от 1 до 4 дней</span>.</span></li>
+                    <li class="rule-item"><span class="rule-text">🏷️ <strong>8.2</strong> Кастомный префикс должен соответствовать всем правилам сервера. Запрещены оскорбительные префиксы, а также префиксы, с помощью которых можно выдавать себя за администрацию (Helper, Moder и т.д). Нарушение = блокировка / снятие префикса.</span></li>
+                </ul>
+                <div class="warning-note">
+                    <i class="fas fa-info-circle"></i> Администрация оставляет за собой право блокировать аккаунты, нанесшие серьезный вред проекту, даже если аккаунт был передан или взломан. Ответственность всегда на владельце.
+                </div>
+            </div>
+        </div>
+
+        <!-- итоговый блок: дополнительная информация -->
+        <div style="background: rgba(0,0,0,0.3); border-radius: 1.5rem; padding: 1.2rem; text-align: center; margin-top: 1rem;">
+            <i class="fas fa-balance-scale"></i> Решения главной администрации окончательны. Все споры решаются через техподдержку <i class="fab fa-telegram"></i> @reallyworldrwinfo <br>
+            <span style="font-size: 0.75rem;">Актуальная версия правил: обязательно соблюдайте пункты 1.4, 1.6, 5.2 и 6.1.4 — грубые нарушения ведут к перманентной блокировке.</span>
+        </div>
+    </div>
+
+    <footer>
+        <p><i class="far fa-registered"></i> KastWorld — некоммерческий игровой проект. Правила разработаны для комфортной игры. Нарушители несут полную ответственность.</p>
+        <p style="margin-top: 0.5rem;">Сервер расположен по адресу: mc.kastworld.pw | Все права защищены в рамках проекта</p>
+    </footer>
+</div>
 </body>
 </html>
