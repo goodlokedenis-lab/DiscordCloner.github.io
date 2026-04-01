@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Server Cloner Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DISCORD CLONER PRO</h1>
+            <p class="author">by [ваше_имя] • 2026</p>
+        </header>
+
+        <div class="warning">
+            ⚠️ ТОКЕН - ЭТО ВАШ ПАРОЛЬ! НИКОМУ НЕ ПОКАЗЫВАЙТЕ ⚠️
+        </div>
+
+        <div class="token-guide">
+            <h3>КАК ПОЛУЧИТЬ ТОКЕН?</h3>
+            <ol>
+                <li>Откройте Discord в браузере</li>
+                <li>Нажмите <kbd>F12</kbd> → Network</li>
+                <li>Введите в поиске: <code>/api</code></li>
+                <li>Найдите пункт <code>science</code></li>
+                <li>Скопируйте <code>authorization</code></li>
+            </ol>
+        </div>
+
+        <div class="clone-form">
+            <input type="text" id="token" placeholder="Введите токен Discord" autocomplete="off">
+            <input type="text" id="serverId" placeholder="ID сервера для клонирования">
+            <input type="text" id="newServerName" placeholder="Название нового сервера (опционально)">
+            <button id="cloneBtn" class="clone-btn">КЛОНИРОВАНИЕ</button>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-text" id="progressText">ПРОГРЕСС: 0%</div>
+            <div class="stage-text" id="stageText">ЭТАП: ПОДГОТОВКА</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>РОЛИ</h3>
+                <p id="rolesCount">0/0</p>
+            </div>
+            <div class="stat-card">
+                <h3>КАНАЛЫ</h3>
+                <p id="channelsCount">0/0</p>
+            </div>
+        </div>
+
+        <div class="info-panels">
+            <div class="info-panel">
+                <h3>✅ БУДЕТ СКОПИРОВАНО</h3>
+                <ul>
+                    <li>НАЗВАНИЕ СЕРВЕРА</li>
+                    <li>ИКОНКА СЕРВЕРА</li>
+                    <li>ВСЕ РОЛИ (С ПРАВАМИ)</li>
+                    <li>КАТЕГОРИИ И КАНАЛЫ</li>
+                    <li>ПРАВА ДОСТУПА</li>
+                </ul>
+            </div>
+            <div class="info-panel">
+                <h3>❌ НЕ БУДЕТ СКОПИРОВАНО</h3>
+                <ul>
+                    <li>СООБЩЕНИЯ</li>
+                    <li>УЧАСТНИКИ</li>
+                    <li>ВЕБХУКИ</li>
+                    <li>ИНТЕГРАЦИИ</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>by [ваше_имя] • 2026 | <a href="#" id="supportLink">ПОДДЕРЖКА РАЗРАБОТЧИКА</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
